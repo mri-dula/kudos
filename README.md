@@ -2,9 +2,9 @@
 
 A web app for employees to give Kudos to each other.
 
-Things you may want to cover:
-
 * Rails version: 5.2.2
+
+* Database: SQLite
 
 * To setup the database + seed data, run : 'rails db:setup'
 
