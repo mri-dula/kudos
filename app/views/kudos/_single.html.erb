@@ -1,0 +1,16 @@
+<div class="panel panel-default kudo-panel">
+    <div class="panel-heading">
+        <%= I18n.t type %>: <h3 class="panel-title"><%= eval("kudo.#{type}.full_name") %></h3>
+        <%= content_tag :span do %>
+            <em><%= I18n.t 'ago', :time => time_ago_in_words(kudo.created_at) %></em> 
+        <% end %>
+    </div>
+    <div class="panel-body">
+        <strong><%= I18n.t 'activerecord.attributes.kudo.message' %></strong>: 
+        <% if kudo.message.blank? then %>
+            -
+        <% else %>
+            <%= kudo.message %>
+        <% end %>
+    </div>
+</div>

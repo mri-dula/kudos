@@ -1,0 +1,18 @@
+<% if notice %>
+  <div class="admin-success-msg alert alert-success fade in">
+    <button data-dismiss="alert" class="close">
+        ×
+    </button>
+    <i class="fa-fw fa fa-check"></i>
+    <%= notice %>
+    </div>
+<% end %>
+<% if alert %>
+  <div class="admin-warning-msg alert alert-warning fade in" style="margin-bottom: 0 !important">
+    <button data-dismiss="alert" class="close">
+      ×
+    </button>
+    <i class="fa-fw fa fa-warning"></i>
+    <%= alert %>
+  </div>
+<% end %>

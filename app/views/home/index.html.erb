@@ -1,0 +1,8 @@
+<% content_for :scripts do %>
+    <%= javascript_include_tag 'home' %>
+<% end %>
+<h3><%= I18n.t('navbar.give_kudos') %></h3>
+<p><%= raw(I18n.t 'messages.you_have_kudos_left', :count => current_user.employee.kudos_left_for_the_week) %>.</p>
+<%= form_for @kudo, :url => profile_kudos_path do |f| %>
+    <%= render :partial => 'kudos/form', :locals => { :f => f } %>
+<% end %>

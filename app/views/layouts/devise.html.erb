@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kudos</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Kudos!</a>
+        </div>
+    </nav>
+    <%= render :partial => 'layouts/errors' %>
+    <%= content_tag :div, :class => 'content' do %>
+        <%= yield %>
+    <% end %>
+
+    <footer class="footer">
+      
+    </footer>
+  </body>
+</html>

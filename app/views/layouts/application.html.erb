@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kudos</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js' %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :scripts %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <%= link_to 'Kudos!', root_path, :class => 'navbar-brand' %>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.employee.full_name %> (<%= @current_organization.name %>)<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to I18n.t('navbar.give_kudos'), root_path %></li>
+                <li><%= link_to I18n.t('navbar.kudos_given'), given_profile_kudos_path %></li>
+                <li><%= link_to I18n.t('navbar.kudos_received'), received_profile_kudos_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to I18n.t('navbar.logout'), destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <%= render :partial => 'layouts/errors' %>
+    <% if error %>
+      <div class="admin-error-msg alert alert-danger fade in" style="margin-bottom: 0 !important">
+        <button data-dismiss="alert" class="close">
+          ×
+        </button>
+        <i class="fa-fw fa fa-warning"></i>
+        <%= error %>
+      </div>
+    <% end %>
+    <% if multiple_errors %>
+      <div class="alert alert-danger alert-block alert-multiple-errors">
+      <a class="close" data-dismiss="alert" href="#">×</a>
+      <h4 class="alert-heading"><%= I18n.t('multiple_errors') %></h4>
+      <ul>
+        <% multiple_errors.each do |e| %>
+          <li><%= e %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%= content_tag :div, :class => 'content' do %>
+        <%= yield %>
+    <% end %>
+    <footer class="footer">
+      
+    </footer>
+  </body>
+</html>

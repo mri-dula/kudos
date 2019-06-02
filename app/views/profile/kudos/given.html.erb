@@ -1,0 +1,12 @@
+<h3><%= I18n.t('navbar.kudos_given') %> (<%= current_user.employee.kudos_given.count %>)</h3>
+<% if @kudos.any? then %>
+    <%= content_tag :div, :class => 'row' do %>
+        <% @kudos.each do |kudo| %>
+            <%= content_tag :div, :class => 'col-sm-4' do  %>
+                <%= render :partial => 'kudos/single', :locals => { :type => 'to', :kudo => kudo } %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% else %>
+    <%= I18n.t 'messages.no_results_found' %>
+<% end %>
