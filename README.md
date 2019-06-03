@@ -10,4 +10,4 @@ A web app for employees to give Kudos to each other.
 
 * To recreate the database, run: 'rails db:drop' and 'rails db:setup'
 
-* To run the local server, run: 'rails server'. Browse to 'lvh.me:3000'. NOT 'localhost:3000'
+* To run the local server, run: 'rails server'. Browse to '**lvh.me:3000**'. *NOT* 'localhost:3000'
