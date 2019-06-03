@@ -1,12 +1,12 @@
+<% content_for :breadcrumbs do %>
+    <ol class="breadcrumb">
+        <li><%= link_to I18n.t('navbar.home'), root_path %></li>
+        <li class="active"><%= I18n.t('navbar.kudos_given') %></li>
+    </ol>
+<% end %>
 <h3><%= I18n.t('navbar.kudos_given') %> (<%= current_user.employee.kudos_given.count %>)</h3>
 <% if @kudos.any? then %>
-    <%= content_tag :div, :class => 'row' do %>
-        <% @kudos.each do |kudo| %>
-            <%= content_tag :div, :class => 'col-sm-4' do  %>
-                <%= render :partial => 'kudos/single', :locals => { :type => 'to', :kudo => kudo } %>
-            <% end %>
-        <% end %>
-    <% end %>
+    <%= render :partial => 'kudos/list', :locals => { :type => 'to' } %>
 <% else %>
     <%= I18n.t 'messages.no_results_found' %>
 <% end %>

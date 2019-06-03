@@ -5,7 +5,7 @@ class Profile::KudosController < ApplicationController
         @kudo.from = current_user.employee
         if @kudo.save then 
             flash[:notice] = I18n.t('messages.kudos_saved_successfully', :to_name => @kudo.to.full_name)
-            redirect_to root_path
+            redirect_to given_profile_kudos_path
         else 
             flash[:multiple_errors] = @kudo.errors.full_messages
             redirect_to root_path

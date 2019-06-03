@@ -13,5 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.min
 //= require bootstrap.min
+//= require select2.min
 //= require cable

@@ -55,6 +55,7 @@ en:
   operations: 
     submit: Submit
   navbar:
+    home: Home
     give_kudos: Give kudos!
     kudos_given: Kudos given
     kudos_received: Kudos received
